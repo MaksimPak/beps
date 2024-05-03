@@ -206,6 +206,62 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getTermById",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "title",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "specifications",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "materialType",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "budget",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quantity",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deadline",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BepsTender.ContractTerm",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
@@ -250,11 +306,11 @@
 	},
 	"sources": {
 		"contracts/BepsTender.sol": {
-			"keccak256": "0x910a046bbfdcbad9739007c3cc94c522b0f8294e3a7f56753fd8343da9f6daf5",
+			"keccak256": "0xc6a9e59fe0eaaf198ab21d1ebc6c1b91ee53b46aa12f16d3bb9f7b8964a1d521",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://90ee24503c28ba15dc955ae166a8f299bcc6a00097cc9887e47f3c5c7d75ecaf",
-				"dweb:/ipfs/QmSGgBuCKTwvUdkmm5sWU7QBLpjaE3wo8rKpkBnR3yc7jX"
+				"bzz-raw://65ead76cbee0ec07e2c2cca2a8205e3c01e78cb3d0c58c799b8536901ef8f5c3",
+				"dweb:/ipfs/QmbAFg7n3dUuBmDNivJ3YqbZWNTfJ1TCuj5vQDfhr6oXNk"
 			]
 		},
 		"hardhat/console.sol": {

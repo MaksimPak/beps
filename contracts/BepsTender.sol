@@ -24,6 +24,10 @@ contract BepsTender {
     function getContractTerms() public view returns (ContractTerm[] memory) {
         return contractTerms;
     }
+    
+    function getTermById(uint id) public view returns (ContractTerm memory) {
+        return contractTerms[id];
+    }
 
 
     function createTerm(
@@ -35,7 +39,6 @@ contract BepsTender {
         uint _quantity,
         uint _deadline
     ) external {
-        console.log(block.timestamp);
         require(_deadline > block.timestamp, "Deadline must be greater than current date");
         
         contractTerms.push(ContractTerm(_title, _description, _specifications, _materialType,_budget, _quantity, _deadline));
