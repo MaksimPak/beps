@@ -15,22 +15,34 @@ contract BepsTender {
         uint quantity;
         uint deadline;
     }
-    event NewTerm(uint termId, string title, string description, string specifications, string materialType, uint budget, uint _quantity, uint deadline);
+    event NewTerm(
+        uint indexed termId, 
+        string title, 
+        string description, 
+        string specifications, 
+        string materialType, 
+        uint budget, 
+        uint quantity, 
+        uint deadline
+    );
 
 
     mapping (uint => address) public termsToOwner;
+    mapping (uint => address[]) public termSuppliers;
+
     ContractTerm[] public contractTerms;
 
-    function getContractTerms() public view returns (ContractTerm[] memory) {
+    function getContracts() public view returns (ContractTerm[] memory) {
         return contractTerms;
     }
-    
-    function getTermById(uint id) public view returns (ContractTerm memory) {
-        return contractTerms[id];
+
+    function getContractById(uint _id) public view returns (ContractTerm memory) {
+        require(_id < contractTerms.length, "Invalid id");
+        return contractTerms[_id];
     }
 
 
-    function createTerm(
+    function createContract(
         string memory _title, 
         string memory _description, 
         string memory _specifications,
@@ -40,12 +52,15 @@ contract BepsTender {
         uint _deadline
     ) external {
         require(_deadline > block.timestamp, "Deadline must be greater than current date");
-        
         contractTerms.push(ContractTerm(_title, _description, _specifications, _materialType,_budget, _quantity, _deadline));
         uint id = contractTerms.length;
         termsToOwner[id] = msg.sender;
-        console.log("New tender created with id:", id);
 
         emit NewTerm(id, _title, _description, _specifications, _materialType, _budget, _quantity, _deadline);
+    }
+
+    function applyForContract(uint _id) external {
+        require(_id < contractTerms.length, "Invalid id");
+        termSuppliers[_id].push(msg.sender);
     }
 }

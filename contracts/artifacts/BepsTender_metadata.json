@@ -9,7 +9,7 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "uint256",
 						"name": "termId",
 						"type": "uint256"
@@ -47,7 +47,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_quantity",
+						"name": "quantity",
 						"type": "uint256"
 					},
 					{
@@ -59,6 +59,19 @@
 				],
 				"name": "NewTerm",
 				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "applyForContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -147,14 +160,70 @@
 						"type": "uint256"
 					}
 				],
-				"name": "createTerm",
+				"name": "createContract",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getContractById",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "title",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "specifications",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "materialType",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "budget",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quantity",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deadline",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BepsTender.ContractTerm",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "getContractTerms",
+				"name": "getContracts",
 				"outputs": [
 					{
 						"components": [
@@ -206,53 +275,21 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "id",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "getTermById",
+				"name": "termSuppliers",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "title",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "description",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "specifications",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "materialType",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "budget",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "quantity",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "deadline",
-								"type": "uint256"
-							}
-						],
-						"internalType": "struct BepsTender.ContractTerm",
+						"internalType": "address",
 						"name": "",
-						"type": "tuple"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -306,11 +343,11 @@
 	},
 	"sources": {
 		"contracts/BepsTender.sol": {
-			"keccak256": "0xc6a9e59fe0eaaf198ab21d1ebc6c1b91ee53b46aa12f16d3bb9f7b8964a1d521",
+			"keccak256": "0xf24c9e2c215629c767b18d84c8cfa61da8af157ec7e82281af7bfdb6d528729b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://65ead76cbee0ec07e2c2cca2a8205e3c01e78cb3d0c58c799b8536901ef8f5c3",
-				"dweb:/ipfs/QmbAFg7n3dUuBmDNivJ3YqbZWNTfJ1TCuj5vQDfhr6oXNk"
+				"bzz-raw://acb949307d6b0c57e109b41a6f59134ca4c0421577a5c27c9658ed6cf9209198",
+				"dweb:/ipfs/QmXbYx1f8gaXqNDrHq4LmyiAevti4MUytxfV53oEwivXbu"
 			]
 		},
 		"hardhat/console.sol": {
