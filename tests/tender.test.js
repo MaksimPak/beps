@@ -32,4 +32,22 @@ describe("Tender", function () {
     await tender.applyForContract(0);
     expect(await tender.termSuppliers(0, 0)).to.be.a('string');
   })
+    it("should allow contract owner to select a supplier", async function () {
+    const [owner] = await ethers.getSigners();
+
+    await tender.createContract(
+      "Contract Title",
+      "Contract Description",
+      "Contract Specifications",
+      "Material Type",
+      1000,
+      10,
+      Math.floor(new Date().getTime() / 1000) + 3600
+    );
+    const contractTermId = 0;
+    await tender.applyForContract(contractTermId);
+    await tender.selectSupplier(contractTermId);
+    const selectedSupplier = await tender.termWinner(contractTermId);
+    expect(selectedSupplier).to.equal(owner.address);
+  });
 });
