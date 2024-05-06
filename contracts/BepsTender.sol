@@ -15,6 +15,7 @@ contract BepsTender {
         uint quantity;
         uint deadline;
     }
+
     event NewTerm(
         uint indexed termId, 
         string title, 
@@ -29,6 +30,7 @@ contract BepsTender {
 
     mapping (uint => address) public termsToOwner;
     mapping (uint => address[]) public termSuppliers;
+    mapping (uint => address) public termWinner;
 
     ContractTerm[] public contractTerms;
 
@@ -62,5 +64,10 @@ contract BepsTender {
     function applyForContract(uint _id) external {
         require(_id < contractTerms.length, "Invalid id");
         termSuppliers[_id].push(msg.sender);
+    }
+
+    function selectSupplier(uint _id) external {
+        require(_id < contractTerms.length, "Invalid id");
+        termWinner[_id] = msg.sender;
     }
 }

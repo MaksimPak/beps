@@ -275,6 +275,19 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "selectSupplier",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					},
@@ -285,6 +298,25 @@
 					}
 				],
 				"name": "termSuppliers",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "termWinner",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -343,11 +375,11 @@
 	},
 	"sources": {
 		"contracts/BepsTender.sol": {
-			"keccak256": "0xf24c9e2c215629c767b18d84c8cfa61da8af157ec7e82281af7bfdb6d528729b",
+			"keccak256": "0x120afb9094be9695c0f1a9db059ec3103f47f755c41b802342ff6e19a7847cb4",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://acb949307d6b0c57e109b41a6f59134ca4c0421577a5c27c9658ed6cf9209198",
-				"dweb:/ipfs/QmXbYx1f8gaXqNDrHq4LmyiAevti4MUytxfV53oEwivXbu"
+				"bzz-raw://ccfd5122ebcb4c5223cd954908c57f7c729af099ddadab674a42b712956819b2",
+				"dweb:/ipfs/Qmeqki9xG94kZhL2mVM8xRNNCkrWbeA5XgZrpDhi7UgzFi"
 			]
 		},
 		"hardhat/console.sol": {
